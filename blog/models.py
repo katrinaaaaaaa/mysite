@@ -16,6 +16,7 @@ class Blog(models.Model, ReadNumExpandMethod):
     blog_type = models.ForeignKey(BlogType, on_delete=models.CASCADE)
     content = RichTextUploadingField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    private = models.BooleanField(default=False)
     read_details = GenericRelation(ReadDetail)
     created_time = models.DateTimeField(auto_now_add=True)
     last_updated_time = models.DateTimeField(auto_now=True)    
